@@ -12,7 +12,12 @@ return [
     'truncate_tables' => true,
 
     'roles_structure' => [
-        'admin' => [
+        'lecturer' => [
+            'branch' => 'c,r,u,d',
+            'staff' => 'c,r,u,d',
+            'users' => 'c,r,u,d'
+        ],
+        'student' => [
             'branch' => 'c,r,u,d',
             'staff' => 'c,r,u,d',
             'users' => 'c,r,u,d'

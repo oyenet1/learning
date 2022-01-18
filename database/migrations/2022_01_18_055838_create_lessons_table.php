@@ -15,6 +15,11 @@ class CreateLessonsTable extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->string('course');
+            $table->date('date');
+            $table->time('start');
+            $table->time('end');
             $table->timestamps();
         });
     }
