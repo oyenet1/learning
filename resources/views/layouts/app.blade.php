@@ -143,68 +143,58 @@
           <li class="nav-item">
             <a href="/" class="nav-link {{ (request()->is('/branches')) ? 'nav-active' : '' }} "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
           </li>
-          @if (auth()->user()->hasRole('admin'))
+          @if (auth()->user()->hasRole('lecturer'))
           <li class="nav-item">
-            <a href="{{ route('head.branch') }}" class="nav-link {{ (request()->is('/headbranch')) ? 'nav-active' : '' }} ">
+            <a href="{{ route('classes') }}" class="nav-link {{ (request()->is('/classes*')) ? 'nav-active' : '' }} ">
               <span class="pcoded-micon">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" />
                 </svg>
               </span>
-              <span class="pcoded-mtext">Branch Managers</span>
+              <span class="pcoded-mtext">Classes</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('branches') }}" class="nav-link {{ (request()->is('branch*')) ? 'nav-active' : '' }} ">
+            <a href="{{ route('students') }}" class="nav-link {{ (request()->is('students*')) ? 'nav-active' : '' }} ">
               <span class="pcoded-micon">
                 <svg xmlns="http://www.w3.org/2000/svg" class="feather h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clip-rule="evenodd" />
                 </svg>
               </span>
-              <span class="pcoded-mtext">Branches</span>
+              <span class="pcoded-mtext">Student</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/staffs" class="nav-link {{ (request()->is('admin/cities')) ? 'nav-active' : '' }} ">
+            <a href="/attendances" class="nav-link {{ (request()->is('attendances')) ? 'nav-active' : '' }} ">
               <span class="pcoded-micon">
                 <svg xmlns="http://www.w3.org/2000/svg" class="feather h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
                 </svg>
               </span>
-              <span class="pcoded-mtext">Staffs</span>
+              <span class="pcoded-mtext">Attendaces</span>
             </a>
           </li>
           @else
           <li class="nav-item">
-            <a href="{{ route('staffs.index', auth()->user()->branch->state) }}" class="nav-link {{ (request()->is('admin/cities')) ? 'nav-active' : '' }} ">
-              <span class="pcoded-micon">
-                <svg xmlns="http://www.w3.org/2000/svg" class="feather h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-                </svg>
-              </span>
-              <span class="pcoded-mtext">Staffs</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('securities.index', auth()->user()->branch->state) }}" class="nav-link {{ (request()->is('admin/cities')) ? 'nav-active' : '' }} ">
-              <span class="pcoded-micon">
-                <svg xmlns="http://www.w3.org/2000/svg" class="feather h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-              </span>
-              <span class="pcoded-mtext">Securities</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('payments.index', auth()->user()->branch->state) }}" class="nav-link {{ (request()->is('admin/cities')) ? 'nav-active' : '' }} ">
+            <a href="{{ route('profile', auth()->user()->name) }}" class="nav-link {{ (request()->is('profile')) ? 'nav-active' : '' }} ">
               <span class="pcoded-micon">
                 <svg xmlns="http://www.w3.org/2000/svg" class="feather h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                 </svg>
               </span>
-              <span class="pcoded-mtext">Payments</span>
+              <span class="pcoded-mtext">Profile</span>
             </a>
           </li>
+          {{-- <li class="nav-item">
+            <a href="{{ route('class', auth()->user()->name) }}" class="nav-link {{ (request()->is('profile')) ? 'nav-active' : '' }} ">
+              <span class="pcoded-micon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="feather h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span class="pcoded-mtext">Profile</span>
+            </a>
+          </li> --}}
           @endif
         </ul>
 

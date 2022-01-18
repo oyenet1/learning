@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Model;
+use App\Models\Attendance;
 
 class AttendanceFactory extends Factory
 {
@@ -23,7 +23,7 @@ class AttendanceFactory extends Factory
     {
         return [
             'user_id' => random_int(1, 51),
-            'lesson' => random_int(1, 30),
+            'lesson_id' => random_int(1, 5),
         ];
     }
 }

@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <title>alansarsecurity| Login</title>
+  <title>Elearning| Login</title>
 
   {{-- alpinejs  --}}
   {{-- <script  src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script> --}}
